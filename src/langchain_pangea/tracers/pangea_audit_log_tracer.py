@@ -5,20 +5,20 @@ import json
 import logging
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING, Any, Literal
-from uuid import UUID
 
 from langchain_core.load import dumpd
-from langchain_core.messages import BaseMessage
 from langchain_core.tracers import BaseTracer
 from langchain_core.tracers.schemas import Run
-from pangea import PangeaConfig
 from pangea.services import Audit
-from pydantic import SecretStr
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Mapping
+    from uuid import UUID
 
     from langchain_core.documents import Document
+    from langchain_core.messages import BaseMessage
+    from pangea import PangeaConfig
+    from pydantic import SecretStr
 
 
 def _get_run_type(run: Run) -> str:
