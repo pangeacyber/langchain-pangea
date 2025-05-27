@@ -3,8 +3,8 @@ from __future__ import annotations
 import itertools
 import json
 import logging
-from datetime import datetime, timezone
-from typing import TYPE_CHECKING, Any, Dict, Optional
+from datetime import UTC, datetime
+from typing import TYPE_CHECKING, Any, Literal
 from uuid import UUID
 
 from langchain_core.load import dumpd
@@ -14,7 +14,6 @@ from langchain_core.tracers.schemas import Run
 from pangea import PangeaConfig
 from pangea.services import Audit
 from pydantic import SecretStr
-from typing_extensions import Literal
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Mapping
@@ -42,7 +41,7 @@ class PangeaAuditLogTracer(BaseTracer):
         pangea_token: SecretStr,
         config: PangeaConfig | None = None,
         config_id: str | None = None,
-        metadata: Optional[Dict[str, Any]] = None,
+        metadata: dict[str, Any] | None = None,
         **kwargs: Any,
     ) -> None:
         """
@@ -62,10 +61,10 @@ class PangeaAuditLogTracer(BaseTracer):
         messages: list[list[BaseMessage]],
         *,
         run_id: UUID,
-        tags: Optional[list[str]] = None,
-        parent_run_id: Optional[UUID] = None,
-        metadata: Optional[dict[str, Any]] = None,
-        name: Optional[str] = None,
+        tags: list[str] | None = None,
+        parent_run_id: UUID | None = None,
+        metadata: dict[str, Any] | None = None,
+        name: str | None = None,
         **kwargs: Any,
     ) -> Run:
         """Start a trace for an LLM run.
@@ -83,7 +82,7 @@ class PangeaAuditLogTracer(BaseTracer):
         Returns:
             Run: The run.
         """
-        start_time = datetime.now(timezone.utc)
+        start_time = datetime.now(UTC)
         if metadata:
             kwargs.update({"metadata": metadata})
 

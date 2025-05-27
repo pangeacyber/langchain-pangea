@@ -1,4 +1,6 @@
-from typing import Any, Dict, List, Optional, Union
+from __future__ import annotations
+
+from typing import Any
 
 from langchain_core.messages import BaseMessage, ToolCall
 from langchain_core.prompt_values import ChatPromptValue, PromptValue, StringPromptValue
@@ -27,8 +29,8 @@ class PangeaBaseTool(BaseTool):
 
     def invoke(
         self,
-        input: Union[str, Dict, ToolCall, BaseMessage, List[BaseMessage], PromptValue],
-        config: Optional[RunnableConfig] = None,
+        input: str | dict | ToolCall | BaseMessage | list[BaseMessage] | PromptValue,
+        config: RunnableConfig | None = None,
         **kwargs: Any,
     ) -> Any:
         # Check if the input is a ToolCall.
@@ -39,8 +41,8 @@ class PangeaBaseTool(BaseTool):
             return self._run(input)
 
     def _run(
-        self, input_data: Union[str, Dict, ToolCall, BaseMessage, List[BaseMessage], PromptValue]
-    ) -> Union[str, Dict, ToolCall, BaseMessage, List[BaseMessage], PromptValue]:
+        self, input_data: str | dict | ToolCall | BaseMessage | list[BaseMessage] | PromptValue
+    ) -> str | dict | ToolCall | BaseMessage | list[BaseMessage] | PromptValue:
         """Process the input data in a subclass using its _process_text method."""
         if isinstance(input_data, str):
             return self._process_text(input_data)
@@ -84,6 +86,6 @@ class PangeaBaseTool(BaseTool):
         # Create a new instance of the message with the processed content.
         return message.__class__(**message_dict)
 
-    def _process_messages(self, messages: List[BaseMessage]) -> List[BaseMessage]:
+    def _process_messages(self, messages: list[BaseMessage]) -> list[BaseMessage]:
         """Process a list of messages."""
         return [self._process_single_message(message) for message in messages]

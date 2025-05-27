@@ -1,5 +1,6 @@
+from __future__ import annotations
+
 import os
-from typing import Optional
 
 from pangea import PangeaConfig
 from pangea.services import Redact
@@ -53,7 +54,7 @@ class PangeaRedactGuard(PangeaBaseTool):
     def __init__(
         self,
         *,
-        token: Optional[SecretStr] = None,
+        token: SecretStr | None = None,
         config: PangeaConfig | None = None,
         config_id: str | None = None,
         token_env_key_name: str = "PANGEA_REDACT_TOKEN",

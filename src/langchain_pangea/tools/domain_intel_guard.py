@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import os
 import re
-from typing import ClassVar, Optional
+from typing import ClassVar
 
 from pangea import PangeaConfig
 from pangea.services import DomainIntel
@@ -51,7 +53,7 @@ class PangeaDomainIntelGuard(PangeaBaseTool):
     def __init__(
         self,
         *,
-        token: Optional[SecretStr] = None,
+        token: SecretStr | None = None,
         config: PangeaConfig | None = None,
         threshold: int = 80,
         token_env_key_name: str = "PANGEA_DOMAIN_INTEL_TOKEN",

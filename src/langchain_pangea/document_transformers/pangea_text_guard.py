@@ -1,5 +1,8 @@
+from __future__ import annotations
+
 import os
-from typing import Any, Optional, Sequence
+from collections.abc import Sequence
+from typing import Any
 
 from langchain_core.documents import BaseDocumentTransformer, Document
 from pangea import PangeaConfig
@@ -33,7 +36,7 @@ class PangeaGuardTransformer(BaseDocumentTransformer):
 
     def __init__(
         self,
-        token: Optional[SecretStr] = None,
+        token: SecretStr | None = None,
         config: PangeaConfig | None = None,
         config_id: str | None = None,
         recipe: str = "pangea_ingestion_guard",
