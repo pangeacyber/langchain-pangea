@@ -45,15 +45,6 @@ class PangeaRedactGuard(PangeaBaseTool):
             redact_guard.invoke("My name is Dennis Nedry and my email is you.didnt.say.the.magic.word@gmail.com")
     """  # noqa: E501
 
-    name: str = "pangea-redact-guard-tool"
-    """Name of the tool."""
-
-    description: str = (
-        "Redacts sensitive and high-risk information from prompts, responses, "
-        "and RAG context data using the Pangea Redact service."
-    )
-    """Description of the tool."""
-
     def __init__(
         self,
         *,
@@ -75,7 +66,13 @@ class PangeaRedactGuard(PangeaBaseTool):
         if not token or not token.get_secret_value() or token.get_secret_value() == "":
             raise ValueError(f"'{token_env_key_name}' must be set or passed")
 
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+            name="pangea-redact-guard-tool",
+            description=(
+                "Redacts sensitive and high-risk information from prompts, responses, "
+                "and RAG context data using the Pangea Redact service."
+            ),
+        )
 
         self._redact_client = Redact(token=token.get_secret_value(), config=config, config_id=config_id)
 

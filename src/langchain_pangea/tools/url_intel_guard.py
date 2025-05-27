@@ -43,12 +43,6 @@ class PangeaUrlIntelGuard(PangeaBaseTool):
             tool.run("Please click here to confirm your order:http://113.235.101.11:54384/order/123 .  Leave us a feedback here: http://malware123.com/feedback")
     """  # noqa: E501
 
-    name: str = "pangea-url-intel-guard-tool"
-    """Name of the tool."""
-
-    description: str = "Detects malicious URLs in the input text using the Pangea URL Intel service."
-    """Description of the tool."""
-
     _threshold: int = 80
     _url_pattern: ClassVar[str] = r"https?://(?:[-\w.]|%[\da-fA-F]{2})+(?::\d+)?(?:/[\w./?%&=-]*)?(?<!\.)"
 
@@ -72,7 +66,10 @@ class PangeaUrlIntelGuard(PangeaBaseTool):
         if not token or not token.get_secret_value() or token.get_secret_value() == "":
             raise ValueError(f"'{token_env_key_name}' must be set or passed")
 
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+            name="pangea-url-intel-guard-tool",
+            description="Detects malicious URLs in the input text using the Pangea URL Intel service.",
+        )
 
         self._threshold = threshold
         self._url_intel_client = UrlIntel(token=token.get_secret_value(), config=config)
