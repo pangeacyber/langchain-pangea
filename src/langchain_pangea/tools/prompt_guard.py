@@ -2,13 +2,9 @@ import os
 from typing import Optional
 
 from langchain_core.tools import BaseTool
+from pangea import PangeaConfig
+from pangea.services.prompt_guard import Message, PromptGuard
 from pydantic import SecretStr
-
-try:
-    from pangea import PangeaConfig
-    from pangea.services.prompt_guard import Message, PromptGuard
-except ImportError as e:
-    raise ImportError("Cannot import pangea, please install `pip install pangea-sdk==5.2.0b2`.") from e
 
 
 class PangeaPromptGuardError(RuntimeError):

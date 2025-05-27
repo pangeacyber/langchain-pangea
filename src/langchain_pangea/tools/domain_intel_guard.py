@@ -2,15 +2,11 @@ import os
 import re
 from typing import ClassVar, Optional
 
+from pangea import PangeaConfig
+from pangea.services import DomainIntel
 from pydantic import SecretStr
 
 from langchain_pangea.tools.base import PangeaBaseTool
-
-try:
-    from pangea import PangeaConfig
-    from pangea.services import DomainIntel
-except ImportError as e:
-    raise ImportError("Cannot import pangea, please install `pip install pangea-sdk==5.1.0`.") from e
 
 
 class PangeaDomainGuardError(RuntimeError):
