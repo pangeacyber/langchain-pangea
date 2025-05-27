@@ -1,8 +1,9 @@
 [project]
 name = "langchain-pangea"
 version = "0.0.0"
-description = "Add your description here"
+description = "LangChain integrations for Pangea"
 readme = "README.md"
+license = "MIT"
 authors = [
     { name = "Pangea", email = "support@pangea.cloud" }
 ]
@@ -13,6 +14,11 @@ dependencies = [
     "pydantic>=2.11.5",
     "typing-extensions>=4.13.2",
 ]
+
+[project.urls]
+"Source Code" = "https://github.com/pangeacyber/langchain-pangea"
+"Release Notes" = "https://github.com/pangeacyber/langchain-pangea/releases"
+repository = "https://github.com/pangeacyber/langchain-pangea"
 
 [dependency-groups]
 dev = [
