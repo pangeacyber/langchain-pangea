@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import os
+from typing import TYPE_CHECKING
 
 from langchain_core.tools import BaseTool
-from pangea import PangeaConfig
 from pangea.services.prompt_guard import Message, PromptGuard
 from pydantic import SecretStr
+
+if TYPE_CHECKING:
+    from pangea import PangeaConfig
 
 
 class PangeaPromptGuardError(RuntimeError):

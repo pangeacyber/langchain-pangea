@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import os
 import re
-from typing import ClassVar
+from typing import TYPE_CHECKING, ClassVar
 
-from pangea import PangeaConfig
 from pangea.services import IpIntel
 from pydantic import SecretStr
 
 from langchain_pangea.tools.base import PangeaBaseTool
+
+if TYPE_CHECKING:
+    from pangea import PangeaConfig
 
 
 class PangeaIpGuardError(RuntimeError):

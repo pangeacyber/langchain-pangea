@@ -43,5 +43,11 @@ select = [
     "F",
     "I",   # isort
     "PTH", # flake8-use-pathlib
+    "TC",  # flake8-type-checking
     "UP",  # pyupgrade
+]
+flake8-type-checking.runtime-evaluated-base-classes = [
+    "pydantic.BaseModel",
+    "langchain_core.load.serializable.Serializable",
+    "langchain_core.runnables.base.RunnableSerializable"
 ]

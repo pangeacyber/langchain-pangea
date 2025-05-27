@@ -1,11 +1,13 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from langchain_core.messages import BaseMessage, ToolCall
 from langchain_core.prompt_values import ChatPromptValue, PromptValue, StringPromptValue
-from langchain_core.runnables.config import RunnableConfig
 from langchain_core.tools import BaseTool
+
+if TYPE_CHECKING:
+    from langchain_core.runnables.config import RunnableConfig
 
 
 class PangeaBaseTool(BaseTool):

@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import os
-from collections.abc import Sequence
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from langchain_core.documents import BaseDocumentTransformer, Document
-from pangea import PangeaConfig
 from pangea.services import AIGuard
 from pydantic import SecretStr
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
+
+    from pangea import PangeaConfig
 
 
 class PangeaGuardTransformer(BaseDocumentTransformer):

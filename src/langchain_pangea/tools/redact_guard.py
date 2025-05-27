@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import os
+from typing import TYPE_CHECKING
 
-from pangea import PangeaConfig
 from pangea.services import Redact
 from pydantic import SecretStr
 
 from langchain_pangea.tools.base import PangeaBaseTool
+
+if TYPE_CHECKING:
+    from pangea import PangeaConfig
 
 
 class PangeaRedactGuardError(RuntimeError):
