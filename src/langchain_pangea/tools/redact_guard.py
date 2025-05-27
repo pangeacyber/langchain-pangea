@@ -1,15 +1,11 @@
 import os
 from typing import Optional
 
+from pangea import PangeaConfig
+from pangea.services import Redact
 from pydantic import SecretStr
 
 from langchain_pangea.tools.base import PangeaBaseTool
-
-try:
-    from pangea import PangeaConfig
-    from pangea.services import Redact
-except ImportError as e:
-    raise ImportError("Cannot import pangea, please install `pip install pangea-sdk==5.1.0`.") from e
 
 
 class PangeaRedactGuardError(RuntimeError):

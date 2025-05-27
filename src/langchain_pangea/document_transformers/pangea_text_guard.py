@@ -2,13 +2,9 @@ import os
 from typing import Any, Optional, Sequence
 
 from langchain_core.documents import BaseDocumentTransformer, Document
+from pangea import PangeaConfig
+from pangea.services import AIGuard
 from pydantic import SecretStr
-
-try:
-    from pangea import PangeaConfig
-    from pangea.services import AIGuard
-except ImportError as e:
-    raise ImportError("Cannot import pangea, please install `pip install pangea-sdk==5.2.0b2`.") from e
 
 
 class PangeaGuardTransformer(BaseDocumentTransformer):

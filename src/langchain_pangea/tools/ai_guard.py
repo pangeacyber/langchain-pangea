@@ -1,15 +1,11 @@
 import os
 from typing import Optional
 
+from pangea import PangeaConfig
+from pangea.services import AIGuard
 from pydantic import SecretStr
 
 from langchain_pangea.tools.base import PangeaBaseTool
-
-try:
-    from pangea import PangeaConfig
-    from pangea.services import AIGuard
-except ImportError as e:
-    raise ImportError("Cannot import pangea, please install `pip install pangea-sdk==5.2.0b2`.") from e
 
 
 class PangeaAIGuardError(RuntimeError):
