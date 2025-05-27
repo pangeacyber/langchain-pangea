@@ -22,7 +22,9 @@ repository = "https://github.com/pangeacyber/langchain-pangea"
 
 [dependency-groups]
 dev = [
+    "langchain-tests==0.3.19",
     "mypy==1.15.0",
+    "pytest==8.3.5",
     "ruff==0.11.11",
 ]
 
@@ -32,6 +34,14 @@ build-backend = "pdm.backend"
 
 [tool.mypy]
 disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+addopts = "--tb=short"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_mode = "auto"
+filterwarnings = ["error"]
+testpaths = ["tests"]
+xfail_strict = true
 
 [tool.ruff]
 line-length = 120

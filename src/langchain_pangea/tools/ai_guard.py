@@ -49,16 +49,6 @@ class PangeaAIGuard(PangeaBaseTool):
             ai_guard.invoke("My Name is John Doe and my email is john.doe@email.com.  My credit card number is 5555555555554444.")
     """  # noqa: E501
 
-    name: str = "pangea-ai-guard-tool"
-    """Name of the tool."""
-
-    description: str = """
-    Identifies and redacts PII and sensitive information in AI prompts, responses, and RAG context data.
-    Detects and blocks malware submitted by users or ingested via agents or RAG file ingestion.
-    Flags or hides malicious IP addresses, domains, and URLs embedded in prompts, responses, or data vectors.
-    """
-    """Description of the tool."""
-
     _client: AIGuard
     _recipe: str
 
@@ -85,7 +75,16 @@ class PangeaAIGuard(PangeaBaseTool):
         if not token or not token.get_secret_value() or token.get_secret_value() == "":
             raise ValueError(f"'{token_env_key_name}' must be set or passed")
 
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+            name="pangea-ai-guard-tool",
+            description=(
+                "Identifies and redacts PII and sensitive information in AI "
+                "prompts, responses, and RAG context data. Detects and blocks "
+                "malware submitted by users or ingested via agents or RAG file "
+                "ingestion. Flags or hides malicious IP addresses, domains, "
+                "and URLs embedded in prompts, responses, or data vectors."
+            ),
+        )
         self._recipe = recipe
         self._client = AIGuard(token=token.get_secret_value(), config=config, config_id=config_id)
 

@@ -43,12 +43,6 @@ class PangeaIpIntelGuard(PangeaBaseTool):
             tool.run("Please click here to confirm your order:http://113.235.101.11:54384/order/123 .  Leave us a feedback here: http://malware123.com/feedback")
     """  # noqa: E501
 
-    name: str = "pangea-ip-intel-guard-tool"
-    """Name of the tool."""
-
-    description: str = "Detects malicious IP addresses in the input text using the Pangea IP Intel service."
-    """Description of the tool."""
-
     _threshold: int = 80
     _ip_pattern: ClassVar[str] = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
 
@@ -72,7 +66,10 @@ class PangeaIpIntelGuard(PangeaBaseTool):
         if not token or not token.get_secret_value() or token.get_secret_value() == "":
             raise ValueError(f"'{token_env_key_name}' must be set or passed")
 
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+            name="pangea-ip-intel-guard-tool",
+            description="Detects malicious IP addresses in the input text using the Pangea IP Intel service.",
+        )
 
         self._threshold = threshold
         self._ip_intel_client = IpIntel(token=token.get_secret_value(), config=config)

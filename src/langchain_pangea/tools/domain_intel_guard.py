@@ -43,12 +43,6 @@ class PangeaDomainIntelGuard(PangeaBaseTool):
             tool.run("Please click here to confirm your order:http://737updatesboeing.com/order/123 .  Leave us a feedback here: http://malware123.com/feedback")
     """  # noqa: E501
 
-    name: str = "pangea-domain-intel-guard-tool"
-    """Name of the tool."""
-
-    description: str = "Detects malicious domains in the input text using the Pangea Domain Intel service."
-    """Description of the tool."""
-
     _threshold: int = 80
     _domain_pattern: ClassVar[str] = r"\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b"
 
@@ -72,7 +66,10 @@ class PangeaDomainIntelGuard(PangeaBaseTool):
         if not token or not token.get_secret_value() or token.get_secret_value() == "":
             raise ValueError(f"'{token_env_key_name}' must be set or passed")
 
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+            name="pangea-domain-intel-guard-tool",
+            description="Detects malicious domains in the input text using the Pangea Domain Intel service.",
+        )
 
         self._threshold = threshold
         self._domain_intel_client = DomainIntel(token=token.get_secret_value(), config=config)

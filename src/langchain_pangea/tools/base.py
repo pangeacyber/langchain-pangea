@@ -4,10 +4,15 @@ from typing import TYPE_CHECKING, Any
 
 from langchain_core.messages import BaseMessage, ToolCall
 from langchain_core.prompt_values import ChatPromptValue, PromptValue, StringPromptValue
-from langchain_core.tools import BaseTool
+from langchain_core.tools import ArgsSchema, BaseTool
+from pydantic import RootModel
 
 if TYPE_CHECKING:
     from langchain_core.runnables.config import RunnableConfig
+
+
+class _PangeaBaseToolInput(RootModel):
+    root: str | dict | ToolCall | list[BaseMessage]
 
 
 class PangeaBaseTool(BaseTool):
@@ -25,9 +30,11 @@ class PangeaBaseTool(BaseTool):
                     guarded = self._client.guard_text(input_text, recipe="pangea_prompt_guard")
                     if not guarded.result:
                         raise RuntimeError("Invalid or missing result")
-                    return guarded.result.redacted_prompt
+                    return guarded.result.prompt_text
         For the full implementation, see Pangea tools in ``libs/community/langchain_community/tools/pangea``.
     """
+
+    args_schema: ArgsSchema = _PangeaBaseToolInput
 
     def invoke(
         self,
