@@ -1,0 +1,39 @@
+[project]
+name = "langchain-pangea"
+version = "0.0.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pangea", email = "support@pangea.cloud" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "langchain-core>=0.3.61",
+    "pangea-sdk>=6.1.1",
+    "pydantic>=2.11.5",
+    "typing-extensions>=4.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "mypy==1.15.0",
+    "ruff==0.11.11",
+]
+
+[build-system]
+requires = ["pdm-backend==2.4.4"]
+build-backend = "pdm.backend"
+
+[tool.mypy]
+disallow_untyped_defs = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",   # isort
+    "PTH", # flake8-use-pathlib
+]
