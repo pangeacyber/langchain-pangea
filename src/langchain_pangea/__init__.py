@@ -7,6 +7,7 @@ from langchain_pangea.tools.ip_intel_guard import PangeaIpIntelGuard
 from langchain_pangea.tools.prompt_guard import PangeaPromptGuard
 from langchain_pangea.tools.redact_guard import PangeaRedactGuard
 from langchain_pangea.tools.url_intel_guard import PangeaUrlIntelGuard
+from langchain_pangea.tracers.pangea_audit_log_tracer import PangeaAuditLogTracer
 
 try:
     __version__ = metadata.version(__package__)
@@ -22,5 +23,6 @@ __all__ = (
     "PangeaUrlIntelGuard",
     "PangeaRedactGuard",
     "PangeaPromptGuard",
+    "PangeaAuditLogTracer",
     "__version__",
 )
