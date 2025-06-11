@@ -24,7 +24,7 @@ dev = [
     "langchain-tests==0.3.19",
     "mypy==1.16.0",
     "pytest==8.4.0",
-    "ruff==0.11.12",
+    "ruff==0.11.13",
 ]
 
 [build-system]
