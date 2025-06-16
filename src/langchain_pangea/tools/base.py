@@ -5,14 +5,14 @@ from typing import TYPE_CHECKING, Any
 from langchain_core.messages import BaseMessage, ToolCall
 from langchain_core.prompt_values import ChatPromptValue, PromptValue, StringPromptValue
 from langchain_core.tools import ArgsSchema, BaseTool
-from pydantic import RootModel
+from pydantic import BaseModel
 
 if TYPE_CHECKING:
     from langchain_core.runnables.config import RunnableConfig
 
 
-class _PangeaBaseToolInput(RootModel):
-    root: str | dict | ToolCall | list[BaseMessage]
+class _PangeaBaseToolInput(BaseModel):
+    input_data: str | dict | ToolCall | list[BaseMessage]
 
 
 class PangeaBaseTool(BaseTool):

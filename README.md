@@ -37,8 +37,9 @@ from pangea import PangeaConfig
 from pydantic import SecretStr
 
 pangea_ai_guard_token = SecretStr(os.getenv("PANGEA_AI_GUARD_TOKEN"))
-pangea_config = PangeaConfig(domain=pangea_domain)
-pangea_ai_guard_tool = PangeaAIGuard(token=pangea_ai_guard_token, config=pangea_config, recipe="pangea_llm_response_guard")
+pangea_ai_guard_tool = PangeaAIGuard(
+    token=pangea_ai_guard_token, config=PangeaConfig(), recipe="pangea_llm_response_guard"
+)
 ```
 
 #### Agent
@@ -69,7 +70,7 @@ Please find me the most recent ones, you copy?
 
 system_message="Always use AI Guard before your final response to keep it safe for the user."
 
-langgraph_agent_executor = create_react_agent(model, tools, state_modifier=system_message)
+langgraph_agent_executor = create_react_agent(model, tools, prompt=system_message)
 
 state = langgraph_agent_executor.invoke({"messages": [("human", query)]})
 ```
