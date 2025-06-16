@@ -28,7 +28,7 @@ class TestAIGuard(ToolsUnitTests):
     @override
     @property
     def tool_invoke_params_example(self) -> dict:
-        return {"input": "foo"}
+        return {"input_data": "foo"}
 
 
 class TestDomainIntel(ToolsUnitTests):
@@ -45,7 +45,7 @@ class TestDomainIntel(ToolsUnitTests):
     @override
     @property
     def tool_invoke_params_example(self) -> dict:
-        return {"input": "foo"}
+        return {"input_data": "foo"}
 
 
 class TestIpIntel(ToolsUnitTests):
@@ -62,7 +62,7 @@ class TestIpIntel(ToolsUnitTests):
     @override
     @property
     def tool_invoke_params_example(self) -> dict:
-        return {"input": "foo"}
+        return {"input_data": "foo"}
 
 
 class TestRedact(ToolsUnitTests):
@@ -79,7 +79,7 @@ class TestRedact(ToolsUnitTests):
     @override
     @property
     def tool_invoke_params_example(self) -> dict:
-        return {"input": "foo"}
+        return {"input_data": "foo"}
 
 
 class TestUrlIntel(ToolsUnitTests):
@@ -96,4 +96,4 @@ class TestUrlIntel(ToolsUnitTests):
     @override
     @property
     def tool_invoke_params_example(self) -> dict:
-        return {"input": "foo"}
+        return {"input_data": "foo"}
