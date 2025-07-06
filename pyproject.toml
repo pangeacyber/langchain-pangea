@@ -28,7 +28,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["pdm-backend==2.4.4"]
+requires = ["pdm-backend==2.4.5"]
 build-backend = "pdm.backend"
 
 [tool.mypy]
