@@ -9,7 +9,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "langchain-core>=0.3.68",
+    "langchain-core>=0.3.71",
     "pangea-sdk>=6.2.0",
     "pydantic>=2.11.7",
     "typing-extensions>=4.14.1",
