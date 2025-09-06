@@ -12,7 +12,7 @@ dependencies = [
     "langchain-core>=0.3.75",
     "pangea-sdk>=6.4.0",
     "pydantic>=2.11.7",
-    "typing-extensions>=4.14.1",
+    "typing-extensions>=4.15.0",
 ]
 
 [project.urls]
