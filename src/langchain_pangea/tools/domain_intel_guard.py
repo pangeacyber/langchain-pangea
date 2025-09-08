@@ -90,7 +90,11 @@ class PangeaDomainIntelGuard(PangeaBaseTool):
 
         # Replace the input text with a warning message
         # if the score exceeds the defined threshold for any domain.
-        if any(domain_data.score >= self._threshold for domain_data in intel.result.data.values()):
+        if any(
+            domain_data.score >= self._threshold
+            for domain_data in intel.result.data.values()
+            if domain_data.score is not None
+        ):
             input_text = "Malicious domain(s) found in the provided input."
 
         return input_text

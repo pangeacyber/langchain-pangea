@@ -90,7 +90,7 @@ class PangeaIpIntelGuard(PangeaBaseTool):
 
         # Replace the input text with a warning message
         # if the score exceeds the defined threshold for any IP address.
-        if any(ip_data.score >= self._threshold for ip_data in intel.result.data.values()):
+        if any(ip_data.score >= self._threshold for ip_data in intel.result.data.values() if ip_data.score is not None):
             input_text = "Malicious IP(s) found in the provided input."
 
         return input_text
