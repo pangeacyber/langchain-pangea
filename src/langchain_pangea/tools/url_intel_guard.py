@@ -90,7 +90,9 @@ class PangeaUrlIntelGuard(PangeaBaseTool):
 
         # Replace the input text with a warning message
         # if the score exceeds the defined threshold for any URL.
-        if any(url_data.score >= self._threshold for url_data in intel.result.data.values()):
+        if any(
+            url_data.score >= self._threshold for url_data in intel.result.data.values() if url_data.score is not None
+        ):
             input_text = "Malicious URL(s) found in the provided input."
 
         return input_text
