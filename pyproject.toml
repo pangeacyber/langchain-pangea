@@ -1,6 +1,6 @@
 [project]
 name = "langchain-pangea"
-version = "0.1.4"
+version = "0.1.5"
 description = "LangChain integrations for Pangea"
 readme = "README.md"
 license = "MIT"

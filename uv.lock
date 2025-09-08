@@ -499,7 +499,7 @@ wheels = [
 
 [[package]]
 name = "langchain-pangea"
-version = "0.1.4"
+version = "0.1.5"
 source = { editable = "." }
 dependencies = [
     { name = "langchain-core" },
