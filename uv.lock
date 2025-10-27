@@ -648,7 +648,7 @@ dev = [
 requires-dist = [
     { name = "langchain-core", specifier = ">=0.3.79" },
     { name = "pangea-sdk", specifier = ">=6.8.0" },
-    { name = "pydantic", specifier = ">=2.12.2" },
+    { name = "pydantic", specifier = ">=2.12.3" },
     { name = "typing-extensions", specifier = ">=4.15.0" },
 ]
 
