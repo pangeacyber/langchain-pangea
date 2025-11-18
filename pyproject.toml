@@ -21,7 +21,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "langchain-tests==1.0.0",
+    "langchain-tests==1.0.1",
     "mypy==1.18.2",
     "pytest==8.4.2",
     "ruff==0.14.2",
