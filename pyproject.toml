@@ -23,7 +23,7 @@ dependencies = [
 dev = [
     "langchain-tests==1.0.1",
     "mypy==1.18.2",
-    "pytest==8.4.2",
+    "pytest==9.0.1",
     "ruff==0.14.5",
 ]
 
