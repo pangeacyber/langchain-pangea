@@ -654,7 +654,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "langchain-tests", specifier = "==1.0.1" },
+    { name = "langchain-tests", specifier = "==1.0.2" },
     { name = "mypy", specifier = "==1.18.2" },
     { name = "pytest", specifier = "==8.4.2" },
     { name = "ruff", specifier = "==0.14.7" },
@@ -662,7 +662,7 @@ dev = [
 
 [[package]]
 name = "langchain-tests"
-version = "1.0.1"
+version = "1.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -677,9 +677,9 @@ dependencies = [
     { name = "syrupy" },
     { name = "vcrpy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2c/84/302dddf9f8388a0ecc0436603f76496a31b429a209de6dfa839288fe0db5/langchain_tests-1.0.1.tar.gz", hash = "sha256:42932b48d3bb77363104206f499441a81dc1563770b44757ad5e68226106ffd8", size = 159689, upload-time = "2025-11-03T14:48:44.789Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/73/29ff92b758e49c967b6816ca8ca7ad091b77bbf113741a9f628335d8373b/langchain_tests-1.0.2.tar.gz", hash = "sha256:7e96d82499ee32ab141e93bdeb122c942db41ff326bcc87ca27290ede92f0f78", size = 159564, upload-time = "2025-11-22T23:37:09.015Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/31/25/03be05a666ea77353df2d66032058bb04b6e9e4ddb3b8a63c3680b1278ac/langchain_tests-1.0.1-py3-none-any.whl", hash = "sha256:7a74fe22fedc490c44b319ede61aa652318f601ed11f76fdf781eec29a4500c4", size = 50861, upload-time = "2025-11-03T14:48:43.2Z" },
+    { url = "https://files.pythonhosted.org/packages/25/b6/96434f4a01f7270ed29918c37c2e6b82ce208780f94c43a5ea133bd94a95/langchain_tests-1.0.2-py3-none-any.whl", hash = "sha256:713936d9e474ba39eeade95ee8e9d2e237b15a74d4896cae66ef1a9bd0a44d48", size = 50796, upload-time = "2025-11-22T23:37:07.612Z" },
 ]
 
 [[package]]
